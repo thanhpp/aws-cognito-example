@@ -1,11 +1,13 @@
 package cognitolib
 
 import (
+	"time"
+
 	"github.com/aws/aws-sdk-go/aws"
 	cognito "github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
 
-func (app CognitoApp) SignUp(email, password, phonenumber, gender, name string) error {
+func (app CognitoApp) SignUp(email, password, phonenumber, gender, name string, birthdate time.Time) error {
 	newUser := &cognito.SignUpInput{
 		Username: aws.String(email),
 		Password: aws.String(password),
@@ -22,6 +24,10 @@ func (app CognitoApp) SignUp(email, password, phonenumber, gender, name string) 
 			{
 				Name:  aws.String("name"),
 				Value: aws.String(name),
+			},
+			{
+				Name:  aws.String("birthdate"),
+				Value: aws.String(birthdate.Format("2006-01-02")),
 			},
 		},
 	}

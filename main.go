@@ -23,7 +23,7 @@ func main() {
 		panic("nil config")
 	}
 
-	cognitoApp, err := cognitolib.SetupCognito(cfg.Region, cfg.PoolID, cfg.AppID, cfg.AppSecret)
+	cognitoApp, err := cognitolib.SetupCognito(cfg.Region, cfg.PoolID, cfg.AppID)
 	if err != nil {
 		panic(err)
 	}

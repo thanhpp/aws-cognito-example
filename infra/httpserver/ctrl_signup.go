@@ -27,7 +27,9 @@ func (ctrl Controller) Signup(c *gin.Context) {
 		req.Password,
 		req.PhoneNumber,
 		req.Gender,
-		req.FullName)
+		req.FullName,
+		req.DOB,
+	)
 	if err != nil {
 		log.Printf("cognito signup %v \n", err)
 		httputils.InternalErrorAbort(c, err.Error())

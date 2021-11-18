@@ -14,7 +14,7 @@ type CognitoApp struct {
 	appSecret string
 }
 
-func SetupCognito(region, poolID, appID, appSecret string) (*CognitoApp, error) {
+func SetupCognito(region, poolID, appID string) (*CognitoApp, error) {
 	// new session
 	newSession, err := session.NewSession(&aws.Config{
 		Region: aws.String(region),
@@ -24,10 +24,9 @@ func SetupCognito(region, poolID, appID, appSecret string) (*CognitoApp, error) 
 	}
 
 	return &CognitoApp{
-		client:    cognito.New(newSession),
-		region:    region,
-		poolID:    poolID,
-		appID:     appID,
-		appSecret: appSecret,
+		client: cognito.New(newSession),
+		region: region,
+		poolID: poolID,
+		appID:  appID,
 	}, nil
 }
