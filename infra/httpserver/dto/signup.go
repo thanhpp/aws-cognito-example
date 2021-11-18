@@ -1,7 +1,5 @@
 package dto
 
-import "time"
-
 type SignupReq struct {
 	Email           string                   `json:"email"`
 	Password        string                   `json:"password"`
@@ -9,7 +7,7 @@ type SignupReq struct {
 	ConfirmPassword string                   `json:"confirm_pass"`
 	FullName        string                   `json:"full_name"`
 	Gender          string                   `json:"gender"`
-	DOB             time.Time                `json:"date_of_birth"`
+	DOB             string                   `json:"date_of_birth"`
 	HTMLPages       []UserSignUpReqHTMLPages `json:"html_pages"`
 }
 
